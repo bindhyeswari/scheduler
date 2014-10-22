@@ -3,41 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Scheduler SPA</title>
-    <script>
-        // makes an ajax call to the url "/json"
-        /*(function () {
-
-            var data = {
-                name: 'Edwin Villanueva',
-                id: 32
-            };
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/json');
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.addEventListener('readystatechange', function () {
-                if ( xhr.status === 200 && xhr.readyState === 4 ) {
-                    console.log(xhr.responseText);
-                }
-            });
-            xhr.send(JSON.stringify(data));
-        }());*/
-
-
-
-
-
-    </script>
+    <link rel="stylesheet" href="/css/base.css"/>
 </head>
 <body>
     <form name="candidate">
-        <input type="text" name="name" value="Edwin Villanueva"/>
-        <input type="text" name="phone" value="408.444.3256"/>
-        <textarea name="notes">UI Developer</textarea>
+        <div class="row">
+            <input type="text" name="name" placeholder="Enter name here ... "/>
+            <input type="text" name="phone" placeholder="Enter phone here ... "/>
+        </div>
+        <div class="row">
+            <textarea name="notes">UI Developer</textarea>
+        </div>
     </form>
 
-    <button>Save Candidate</button>
-    <table>
+    <div class="row">
+        <button id="btn_save_candidate">Save Candidate</button>
+        <div class="clearfix"></div>
+    </div>
+
+    <table class="row">
         <tr>
             <th>Name</th>
             <th>Phone</th>
@@ -48,84 +32,7 @@
 
         </tbody>
     </table>
-    <script>
-        // function to extract the form data and create a json object from it
-        // source code
-        function extractJsonFromForm (form) {
-            return {
-                name: form.name.value,
-                phone: form.phone.value,
-                notes: form.notes.value
-            };
-        }
-
-        // test code
-        var obj = extractJsonFromForm(document.forms.candidate);
-        console.log(obj);
-
-        function sendCandidateData(data, callback) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/json');
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.addEventListener('readystatechange', function () {
-                if ( xhr.status === 200 && xhr.readyState === 4 ) {
-                    callback(xhr.responseText);
-                }
-            });
-            xhr.send(JSON.stringify(data));
-        }
-
-        // test code
-        sendCandidateData({
-            name: 'Edwin Villanueva',
-            phone: '408.222.3265',
-            notes: 'UI Developer'
-        }, function (results) {
-            var res = JSON.parse(results);
-            console.log(res.message === 'Thanks for the info!' ? 'AJAX test passed' : 'Ajax test failed');
-        });
-
-        // function to write data into a table
-
-        function writeCandidateToTable(tbody, data, schema) {
-
-            //todo: insert before if children exist, else appendchild
-            tbody.appendChild(createCandidateTr(data, schema));
-
-        }
-
-
-        function createCandidateTr(data, schema) {
-            var tr = document.createElement('tr');
-            schema.forEach(function (key) {
-                var td = document.createElement('td');
-                td.innerHTML = data[key];
-                tr.appendChild(td);
-            });
-            return tr;
-        }
-
-        // test code for createCandidateTr
-        var tr = createCandidateTr({
-            name: 'Edwin Villanueva',
-            notes: 'UI Developer',
-            phone: '408.222.3265'
-        }, ['name', 'phone', 'notes']);
-
-        console.log(tr);
-
-        // test code for write candidate
-        writeCandidateToTable(document.getElementById('candidates_info'), {
-            name: 'Edwin Villanueva',
-            notes: 'UI Developer',
-            phone: '408.222.3265'
-        }, ['name', 'phone', 'notes']);
-
-
-
-
-
-
-    </script>
+    <script src="/js/src/scheduler_src.js"></script>
+    <script src="/js/src/scheduler.js"></script>
 </body>
 </html>

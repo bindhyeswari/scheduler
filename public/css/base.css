@@ -1,0 +1,30 @@
+body {
+    font: 200 1em 'Helvetica Neue', 'Segoe UI', 'Droid Sans', 'Helvetica';
+    padding: 3em;
+    margin: 0;
+}
+
+input, select, textarea, button {
+    font: 200 1em 'Helvetica Neue', 'Segoe UI', 'Droid Sans', 'Helvetica';
+    outline: none;
+    border: 1px solid #eee;
+    padding: 0.35em 0.5em;
+    background-color: transparent;
+}
+
+div.row, table.row {
+    background-color: #eee;
+    width: 60%;
+    margin: 1em auto;
+}
+
+button {
+    background-color: #ccc;
+    color: black;
+    border-radius: 0.15em;
+    float: right;
+}
+
+div.clearfix {
+    clear: both;
+}
