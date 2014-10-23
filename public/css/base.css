@@ -13,9 +13,19 @@ input, select, textarea, button {
 }
 
 div.row, table.row {
-    background-color: #eee;
+    background-color: #efefef;
     width: 60%;
     margin: 1em auto;
+}
+
+input.halved {
+    width: 45%;
+    margin: 0;
+    padding: 0.35em 0.55em;
+}
+
+input.halved.borderleft {
+    border-left: 1px solid white;
 }
 
 button {
@@ -25,6 +35,14 @@ button {
     float: right;
 }
 
+textarea {
+    background-color: #eee;
+    border: none;
+    padding: 0;
+    width: 60%;
+}
+
 div.clearfix {
     clear: both;
 }
+
